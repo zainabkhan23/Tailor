@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data>
+
 		
 		<record id="product_product_inherited" model="ir.ui.view">
 		    <field name="name">product.product.inherited</field>
@@ -16,7 +17,8 @@
 		        </xpath>
 		    </field>
 		</record> 
-		<!-- Top menu -->
+
+.		<!-- Top menu -->
         <menuitem name="Tailor" id="tailor"/>
 
         <!-- sub menu -->

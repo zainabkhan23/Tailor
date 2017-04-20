@@ -23,8 +23,11 @@
                         </group>
                     </group>
                 </field>
+                
+                <!-- <field name="amount_tax" position="attributes"> -->
 
               <!--   <field name="amount_tax" position="attributes">
+>>>>>>> 083c854c77ac27157536f06a4bee61047ca11e50
                     <attribute name="invisible">True</attribute>
                 </field>
                 <field name="amount_untaxed" position="attributes">
@@ -33,6 +36,9 @@
 
                 <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
                     <attribute name="invisible">1</attribute>
+<<<<<<< HEAD
+                </xpath>
+=======
                 </xpath> -->
 
              </field>

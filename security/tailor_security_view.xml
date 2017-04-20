@@ -23,5 +23,20 @@
             <field name="groups_id" eval="[(6,0,[ref('group_tailor_somebody')])]"/>       
         </record>
 
+        <!-- Hiding Messaging Top menu item -->
+        <record model="ir.ui.menu" id="mail.mail_feeds_main">           
+            <field name="groups_id" eval="[(6,0,[ref('group_tailor_somebody')])]"/>     
+        </record>
+
+        <!-- Hiding Warehouse Top menu item -->
+        <!-- <record model="ir.ui.menu" id="stock.menu_stock_root"> 
+            <field name="groups_id" eval="[(6,0,[ref('group_tailor_somebody')])]"/>       
+        </record> -->
+
+        <!-- Hiding Reporting Top menu item -->
+        <record model="ir.ui.menu" id="base.menu_reporting">           
+            <field name="groups_id" eval="[(6,0,[ref('group_tailor_somebody')])]"/> 
+        </record>
+
     </data>
 </openerp>
