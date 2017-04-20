@@ -6,6 +6,7 @@ class tailor_records(osv.osv):
 	_rec_name = 'code'
 	_columns = {
 		'customer' : fields.many2one('res.partner','Customer',size=5,required='True'),
+		'product' : fields.many2one('product.template','Product',size=5,required='True'),
 		'code' : fields.char('Order No.', readonly=True),
 		'order_date' : fields.datetime('Order Date',size=5),
 		'custom_shirts' : fields.integer('Custom Shirts(Pcs)',size=5),

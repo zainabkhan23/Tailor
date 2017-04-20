@@ -36,6 +36,7 @@
 						<group col='2'>
 							<group>
 								<field name='customer'/>
+								<field name='product'/>
 								<field name='code'/>
 								<field name='order_date'/>
 								<field name='custom_shirts'/>
