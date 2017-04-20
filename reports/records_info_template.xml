@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		 <report 
+	            id="record_info_id"
+	            model="tailor.records"
+	            string="Customer Record"
+	            report_type="qweb-html"
+	            name="Tailor.records_info_report"
+	            attachment_use="False"
+	            file="Tailor.records_info_report"
+	        />
+	</data>
+</openerp>

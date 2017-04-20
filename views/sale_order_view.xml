@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+        <record model="ir.ui.view" id="tailor_quotation_view">           
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>           
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <group string='Size'>
+                        <group>
+                            <field name='neck'/>
+                            <field name='chest'/>
+                            <field name='waist'/>
+                            <field name='sleeve_left'/>
+                            <field name='wrist_left'/>
+                            <field name='tail'/>
+                            <field name='yoke'/>
+                            <field name='hips'/>
+                            <field name='sleeve_right'/>
+                            <field name='wrist_right'/>
+                        </group>
+                    </group>
+                </field>
+
+              <!--   <field name="amount_tax" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+                <field name="amount_untaxed" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath> -->
+
+             </field>
+        <!-- </field> -->
+        </record>
+
+        <record model="ir.ui.view" id="sale_order_inherit">
+            <field name="name">sale.order.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='amount_untaxed']" position="attributes">
+                        <attribute name="string">Subtotal</attribute>
+                    </xpath>
+                    
+                    <xpath expr="//field[@name='amount_tax']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    
+                    <xpath expr="//field[@name='tax_id']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                    
+                    <xpath expr="//tree/field[@name='tax_id']" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+      <!--   <template id="sale_tax_hide" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+            <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+            <xpath expr="//div/div/table/tr[2]" position="replace"/>
+            <xpath expr="//div/div/table/tr[1]" position="replace"/>
+        </template> -->
+
+		<!-- Top menu -->
+        <menuitem name="Tailor" id="tailor"/>
+
+        <!-- sub menu -->
+
+        <menuitem name="Sales Order" id="sale_order_menu" parent="tailor" sequence='1'/>
+
+        <!-- menu item -->
+        <menuitem id="quotations_menu_mainform" action="sale.action_quotations" parent="sale_order_menu" sequence='3'/>
+
+        view_order_form
+
+        <!-- menu item -->
+        <menuitem action="sale.action_orders" id="sales_orders_menu_mainform" parent="sale_order_menu" sequence='4'/>
+
+        <!-- menu item -->
+        <menuitem id="customers_menu_mainform" action="base.action_partner_customer_form" parent="sale_order_menu" sequence='2'/>
+
+    </data>
+</openerp>

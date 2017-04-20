@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document"> 
+
+			<xpath expr="//div[@class='page']/div[@class='row']/div[@class='col-xs-6']" position="replace">
+
+			<div class="col-xs-6">
+                    <strong t-if="o.partner_shipping_id == o.partner_invoice_id">Invoices:</strong>
+                    <strong t-if="o.partner_shipping_id != o.partner_invoice_id">Invoices:</strong>
+                    <div t-field="o.partner_invoice_id" 
+                        t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                    <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>                       
+                </div>
+            </xpath>    
+
+			<xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="replace">
+				<table style="width:100%;">
+                  <p style="font-size: 20px;" align="left"> <b>Measurements:</b><br/></p>
+                </table>
+
+				<div class="row mt32 mb32" id="informations">
+					<div t-if="o.neck" class="col-xs-3">
+						<strong >Neck:</strong>
+						<p t-field = "o.neck"/>
+					</div>
+					<div t-if="o.chest" class="col-xs-3">
+						<strong>Chest:</strong>
+						<p t-field="o.chest"/>
+					</div>
+					<div t-if="o.waist" class="col-xs-3">
+						<strong>Waist:</strong>
+						<p t-field="o.waist"/>
+					</div>
+					<div t-if="o.sleeve_left" class="col-xs-3">
+						<strong>Left Sleeve:</strong>
+						<p t-field="o.sleeve_left"/>
+					</div>
+					<div t-if="o.sleeve_right" class="col-xs-3">
+						<strong>Right Sleeve:</strong>
+						<p t-field="o.sleeve_right"/>
+					</div>
+					<div t-if="o.wrist_left" class="col-xs-3">
+						<strong>Left Wrist:</strong>
+						<p t-field="o.wrist_left"/>
+					</div>
+					<div t-if="o.wrist_right" class="col-xs-3">
+	                    <strong>Right Wrist:</strong>
+	                    <p t-field="o.wrist_right"/>
+                	</div>
+                	<div t-if="o.hips" class="col-xs-3">
+	                    <strong>Hips:</strong>
+	                    <p t-field="o.hips"/>
+                	</div>
+                	<div t-if="o.tail" class="col-xs-3">
+	                    <strong>Tail:</strong>
+	                    <p t-field="o.tail"/>
+                	</div>
+                	<div t-if="o.yoke" class="col-xs-3">
+	                    <strong>Yoke:</strong>
+	                    <p t-field="o.yoke"/>
+                	</div>
+				</div> 
+			</xpath>
+
+			<xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
+				<tr>
+					<th>Description</th>
+                    <th></th>
+					<th class="text-right">Quantity</th>
+					<th class="text-right">Unit Price</th>
+					<th groups="sale.group_discount_per_so_line">Disc.(%)</th>
+					<th class="text-right">Price</th>
+				</tr>
+			</xpath>
+
+			<xpath expr="//div[@class='page']/div[@class='row']/div[@class='col-xs-4 pull-right']" position="replace">
+			
+                <div class="col-xs-4 pull-right">
+                    <table class="table table-condensed">
+                        <tr class="border-black">
+                            <td><strong>Total</strong></td>
+                            <td class="text-right">
+                                <span t-field="o.amount_total"
+                                    t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </xpath>
+
+		</template>
+
+		</data>
+	</openerp>

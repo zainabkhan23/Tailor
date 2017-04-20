@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document"> 
+
+            <xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th class="text-right">Unit Price</th>
+                    <th class="text-right" groups="sale.group_discount_per_so_line">Discount (%)</th>
+                    <th class="text-right"></th>
+                    <th class="text-right">Amount</th>
+                </tr>
+            </xpath>
+
+            <xpath expr="//div[@class='page']/div[@class='row']/div[@class='col-xs-4 pull-right']" position="replace">
+
+                <div class="col-xs-4 pull-right">
+                    <table class="table table-condensed">
+                        <tr class="border-black">
+                            <td><strong>Total</strong></td>
+                            <td class="text-right">
+                                 <span t-field="o.amount_total" t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </xpath>
+
+
+            <xpath expr="//div[@class='page']/div[@class='row mt32 mb32']" position="replace">
+                <div class="row mt32 mb32">
+                    <div class="col-xs-4" t-if="o.name">
+                        <strong>Description:</strong>
+                        <p t-field="o.name"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.date_invoice">
+                        <strong>Invoice Date:</strong>
+                        <p t-field="o.date_invoice"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.origin">
+                        <strong>Source:</strong>
+                        <p t-field="o.origin"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.partner_id.ref">
+                        <strong>Customer Code:</strong>
+                        <p t-field="o.partner_id.ref"/>
+                    </div>
+                    <div class="col-xs-4" t-if="o.reference">
+                        <strong>Reference:</strong>
+                        <p t-field="o.reference"/>
+                    </div>
+                    <div t-if="o.neck" class="col-xs-4">
+                        <strong>Neck:</strong>
+                        <p t-field="o.neck"/>
+                    <div t-if="o.chest" class="col-xs-4">
+                        <strong>Chest:</strong>
+                        <p t-field="o.chest"/>
+                    </div>
+                    <div t-if="o.waist" class="col-xs-4">
+                        <strong>Waist:</strong>
+                        <p t-field="o.waist"/>
+                    </div>
+                    <div t-if="o.sleeve_left" class="col-xs-4">
+                        <strong>Left Sleeve:</strong>
+                        <p t-field="o.sleeve_left"/>
+                    </div>
+                    <div t-if="o.sleeve_right" class="col-xs-4">
+                        <strong>Right Sleeve:</strong>
+                        <p t-field="o.sleeve_right"/>
+                    </div>
+                    <div t-if="o.wrist_left" class="col-xs-4">
+                        <strong>Left Wrist:</strong>
+                        <p t-field="o.wrist_left"/>
+                    </div>
+                    <div t-if="o.wrist_right" class="col-xs-4">
+                        <strong>Right Wrist:</strong>
+                        <p t-field="o.wrist_right"/>
+                    </div>
+                    <div t-if="o.hips" class="col-xs-4">
+                        <strong>Hips:</strong>
+                        <p t-field="o.hips"/>
+                    </div>
+                    <div t-if="o.tail" class="col-xs-4">
+                        <strong>Tail:</strong>
+                        <p t-field="o.tail"/>
+                    </div>
+                    <div t-if="o.yoke" class="col-xs-4">
+                        <strong>Yoke:</strong>
+                        <p t-field="o.yoke"/>
+                    </div>
+                </div> 
+            </div>
+            </xpath>
+        </template> 
+    </data>
+</openerp>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Top menu -->
+        <menuitem name="Tailor" id="tailor"/>
+
+        <!-- <menuitem name="Products" id="products_menu" parent="tailor" sequence='6'/> -->
+
+        <!-- <menuitem id="base.menu_product" action="product.product_template_action" parent="products_menu" sequence="6"/> -->
+
+        <!-- sub menu -->
+		<menuitem id="inventory_menu" name="Inventory Control" parent="tailor" sequence = '11'/>
+
+        <!-- menu item -->
+		 <menuitem action="stock.action_inventory_form" id="menu_action_inventory_form" parent="inventory_menu" sequence="30"/>
+
+		
+		 <menuitem action="stock_account.action_history_tree" id="menu_action_history_tree" parent="inventory_menu" sequence="29"/>
+
+    </data>
+</openerp>

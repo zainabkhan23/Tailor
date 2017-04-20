@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+
+		<record model="ir.ui.view" id="records_tree_view">
+			<field name="name">Records</field>
+			<field name="model">tailor.records</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Records">
+					<field name='customer'/>
+					<field name='code'/>
+					<field name='order_date'/>
+					<field name='promise_date'/>
+					<field name='dealer'/>
+					<field name='choose'/>
+					<field name='neck'/>
+				</tree>
+			</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="view_tailor_records_form"> 
+		    <field name="name">Records</field>
+		    <field name="model">tailor.records</field>
+		    <field name="type">form</field>
+		    <field name="arch" type="xml">
+				<form string="Records" version="8.0">
+					<header>
+
+						<button name="print_record" string="Print Record" type="object" class="oe_highlight"/>
+					</header>
+
+					<sheet>
+						<group col='2'>
+							<group>
+								<field name='customer'/>
+								<field name='code'/>
+								<field name='order_date'/>
+								<field name='custom_shirts'/>
+								<field name='monogram'/>
+							</group>
+
+							<group>
+								<field name='dealer'/>
+								<field name='promise_date'/>
+								<field name='shalwar_kameez'/>
+								<field name='over_size'/>
+							</group>
+
+							<group>
+								<field name='choose'/>
+								<field name='active'/>
+								<field name='trousers'/>
+							</group>
+							<group>
+								<field name='fitting'/>
+						</group>
+						</group>
+
+					<group string='Size' col='2'>
+						<group>
+						<field name='neck'/>
+						<field name='chest'/>
+						<field name='waist'/>
+						<field name='sleeve_left'/>
+						<field name='wrist_left'/>
+						</group>
+
+						<group>
+						<field name='tail'/>
+						<field name='yoke'/>
+						<field name='hips'/>
+						<field name='sleeve_right'/>
+						<field name='wrist_right'/>
+						</group>
+
+						<group>
+						<field name='neck_design'/>
+						<field name='sleeve_design'/>
+						<field name='pocket_design'/>
+						<field name='front_design'/>
+						</group>
+
+					</group>
+
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="records_filter">
+			<field name="name">view_records_filter</field>
+			<field name="model">tailor.records</field>
+			<field name="arch" type="xml">
+				<search string="Records Search">
+					<filter icon="terp-go-today" string="Promise Date" name="promise_date" domain="[('promise_date','&gt;=',current_date),('promise_date','&lt;=',current_date)]" />
+					<separator/>
+					<group expand="0" string="Group By...">
+						<filter string="Dealer" icon="terp-personal" domain="[]" context="{'group_by':'dealer'}"/>
+						<filter string="Customer" name='customer' icon="terp-personal" domain="[]" context="{'group_by':'customer'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_records_form">
+			<field name="name">Records</field>
+			<field name="res_model">tailor.records</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<!-- Top menu -->
+		<menuitem name="Tailor" id="tailor"/>
+
+		<!-- sub menu -->
+		<menuitem name="Measurements" id="measurements_menu" parent="tailor"/>
+		
+		<!-- menu item -->
+		<menuitem name="Records" parent="measurements_menu" id="records_menu_mainform" action="action_records_form"/>
+
+	</data>
+</openerp>
