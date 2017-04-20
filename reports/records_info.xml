@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+   <data>
+
+      <template id="records_info_report_document">
+          <t t-call="report.external_layout"/>
+      </template>
+
+      <template id="records_info_report">
+
+         <t t-call="report.html_container">
+               <div class="page">
+
+                <div align="center"><br/><br/><br/><img src='/Tailor/static/img/tailor_logo.png' style="max-height: 75px;"/><br/></div>
+                  <div class="oe_structure"/>
+                  <div class="row">
+                    <h2 align="center"><b>Tailor</b></h2>
+
+                    <t t-foreach="docs" t-as="o">
+                        <table style="width:100%;">
+                          <tr style="font-size: 20px;" align="center">
+                            <td align="center"><b><span t-field='o.customer.name'/><br/><b>Order Number </b>-<span t-field='o.code'/><br/><b>Order Date </b>-<span t-field='o.order_date'/><br/><b>Promise Date </b>-<span t-field='o.promise_date'/></b><br/><br/><br/></td>
+
+    
+                          <!-- </tr>
+                           <tr style="font-size: 20px;" align="center">
+                            <td align="center">Coordinates: <span t-field="o.current_longitude"/> - <span t-field="o.current_latitude"/>  </td>
+                            <td align="center"><b>Time: <span t-field="o.visit_time"/></b></td> -->
+                          </tr>
+                        </table>
+
+                        <table style="width:100%;">
+                          <p style="font-size: 20px;" align="left"> <b>Requirements:</b><br/><br/></p>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Dealer - </b><span t-field="o.dealer"/></td>
+                            <td align="center"><b>Type - </b><span t-field="o.choose"/></td>
+                          </tr>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Fitting - </b><span t-field="o.fitting"/></td>
+                             <td align="center"><b>Over Size - </b><span t-field="o.over_size"/></td>
+                          </tr>
+                        </table>
+
+                        <br/><br/><br/><br/>
+
+                         <table style="width:100%;">
+                          <p style="font-size: 20px;" align="left"> <b>Measurements(Size):</b><br/><br/></p>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Neck - </b><span t-field="o.neck"/></td>
+                            <td align="center"><b>Chest - </b><span t-field="o.chest"/></td>
+                          </tr>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Waist - </b><span t-field="o.waist"/></td>
+                             <td align="center"><b>Tail - </b><span t-field="o.tail"/></td>
+                          </tr>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Hips - </b><span t-field="o.hips"/></td>
+                             <td align="center"><b>Yoke - </b><span t-field="o.yoke"/></td>
+                          </tr>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Sleeve Left - </b><span t-field="o.sleeve_left"/></td>
+                             <td align="center"><b>Sleeve Right - </b><span t-field="o.sleeve_right"/></td>
+                          </tr>
+                          <tr style="font-size: 18px;" align="center">
+                             <td align="center"><b>Wrist Left - </b><span t-field="o.wrist_left"/></td>
+                             <td align="center"><b>Wrist Right - </b><span t-field="o.wrist_right"/></td>
+                          </tr>
+                        </table>
+
+
+                    </t>
+                  </div><br/><br/><br/><br/>
+                </div>
+         </t>
+      </template>
+
+  </data>
+</openerp>
+            
