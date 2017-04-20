@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- Top menu -->
+        <menuitem name="Tailor" id="tailor"/>
+
+        <!-- sub menu -->
+        <menuitem name="Products" id="products_menu" parent="tailor" sequence='6'/>
+
+        <!-- menu item -->
+        <menuitem id="base.menu_product" action="product.product_template_action" parent="products_menu" sequence="6"/>
+
+    </data>
+</openerp>
