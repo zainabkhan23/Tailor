@@ -10,6 +10,7 @@
 			<field name="arch" type="xml">
 				<tree string="Records">
 					<field name='customer'/>
+					<field name='tailor'/>
 					<field name='code'/>
 					<field name='order_date'/>
 					<field name='promise_date'/>
@@ -36,6 +37,7 @@
 						<group col='2'>
 							<group>
 								<field name='customer'/>
+								<field name='tailor'/>
 								<field name='product'/>
 								<field name='code'/>
 								<field name='order_date'/>
