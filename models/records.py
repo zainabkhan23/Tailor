@@ -6,6 +6,7 @@ class tailor_records(osv.osv):
 	_rec_name = 'code'
 	_columns = {
 		'customer' : fields.many2one('res.partner','Customer',size=5,required='True'),
+		'tailor':fields.many2one("res.users","Tailor", required=True),
 		'product' : fields.many2one('product.template','Product',size=5,required='True'),
 		'code' : fields.char('Order No.', readonly=True),
 		'order_date' : fields.datetime('Order Date',size=5),
@@ -51,3 +52,8 @@ class tailor_records(osv.osv):
 		return super(tailor_records,self).create(cr,uid,vals,context=context)
 		
 tailor_records()
+
+class customer(osv.osv):
+	_inherit = 'res.partner'
+
+customer()
