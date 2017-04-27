@@ -6,6 +6,7 @@ class sale_order(osv.osv):
 	_inherit="sale.order"
 	_columns = {
 		'customer':fields.many2one('tailor.records','Customer',size=50),
+		'tailor':fields.many2one("res.users","Tailor", required=True),
 		'code' : fields.integer('Order No.',size=5),
 		'order_date' : fields.datetime('Order Date',size=5),
 		'neck' : fields.float('Neck'),

@@ -16,6 +16,7 @@
 			 "views/inventory_view.xml",
 			 "views/tailor_sequencing.xml",
 			 "security/tailor_security_view.xml",
+			 "security/ir.model.access.csv",
 			 "reports/records_info.xml",
 			 "reports/records_info_template.xml",
 			 "reports/report_saleorder.xml",

@@ -49,9 +49,9 @@
         </record>
 
         <!-- Hiding Warehouse Top menu item -->
-        <!-- <record model="ir.ui.menu" id="stock.menu_stock_root"> 
+        <record model="ir.ui.menu" id="stock.menu_stock_root"> 
             <field name="groups_id" eval="[(6,0,[ref('group_tailor_somebody')])]"/>       
-        </record> -->
+        </record>
 
         <!-- Hiding Reporting Top menu item -->
         <record model="ir.ui.menu" id="base.menu_reporting">           
@@ -62,6 +62,7 @@
 
     <data noupdate="0">
 
+        <!-- Manager Acccess -->
         <record model="ir.rule" id="tailor_manager_tailor_records_rule">
             <field name="name">Manager: see all records</field>
             <field name="model_id" ref="model_tailor_records"/>
@@ -90,31 +91,40 @@
             <field name="groups" eval="[(4,ref('Tailor.group_tailor_manager'))]"/>
         </record>
 
-         <record model="ir.rule" id="tailor_tailor_record_rule">
-            <field name="name">Tailor: see only his records</field>
-            <field name="model_id" ref="model_tailor_records"/>
-            <field name="domain_force">[('tailor','=', user.id)]</field>
-            <field name="groups" eval="[(4,ref('Tailor.group_tailor_tailor'))]"/>
-        </record>
-
+        <!-- Tailor Access -->
         <record model="ir.rule" id="tailor_tailor_sales_rule">
             <field name="name">Tailor: see only his sales</field>
             <field name="model_id" ref="model_sale_order"/>
-            <field name="domain_force">[('tailor','=', user.id)]</field>
+            <field name="domain_force">[('tailor.id','=', user.id)]</field>
             <field name="groups" eval="[(4,ref('Tailor.group_tailor_tailor'))]"/>
         </record>
 
+        <record model="ir.rule" id="tailor_tailor_invoices_rule">
+            <field name="name">Tailor: see only his invoices</field>
+            <field name="model_id" ref="model_account_invoice"/>
+            <field name="domain_force">[('tailor.id','=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('Tailor.group_tailor_tailor'))]"/>
+        </record>
+
+         <record model="ir.rule" id="tailor_tailor_record_rule">
+            <field name="name">Tailor: see only his records</field>
+            <field name="model_id" ref="model_tailor_records"/>
+            <field name="domain_force">[('tailor.id','=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('Tailor.group_tailor_tailor'))]"/>
+        </record>
+
+        <record model="ir.rule" id="tailor_tailor_cust_rule">
+            <field name="name">Tailor: sees all customers</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="domain_force">[1, '=', 1]</field>
+            <field name="groups" eval="[(4,ref('Tailor.group_tailor_tailor'))]"/>
+        </record>
+        
+        <!-- Customer Access -->
          <record model="ir.rule" id="tailor_cust_rule">
             <field name="name">Customer: see only his customers</field>
             <field name="model_id" ref="model_res_partner"/>
             <field name="domain_force">[('related_user','=', user.id)]</field>
-            <field name="groups" eval="[(4,ref('Tailor.group_tailor_cust'))]"/>
-        </record>
-
-        <record model="ir.rule" id="tailor_cust_rule1">
-            <field name="name">Customer: see only his records</field>
-            <field name="model_id" ref="model_tailor_records"/>
-            <field name="domain_force">[('child_ids.related_user.id','=', user.id)]</field>
             <field name="groups" eval="[(4,ref('Tailor.group_tailor_cust'))]"/>
         </record>
 
@@ -129,6 +139,13 @@
             <field name="name">Customer: see only his invoices</field>
             <field name="model_id" ref="model_account_invoice"/>
             <field name="domain_force">[('partner_id.related_user.id','=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('Tailor.group_tailor_cust'))]"/>
+        </record>
+
+        <record model="ir.rule" id="tailor_cust_rule1">
+            <field name="name">Customer: see only his records</field>
+            <field name="model_id" ref="model_tailor_records"/>
+            <field name="domain_force">[('customer.related_user.id','=', user.id)]</field>
             <field name="groups" eval="[(4,ref('Tailor.group_tailor_cust'))]"/>
         </record>
 

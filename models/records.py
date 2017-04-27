@@ -55,5 +55,10 @@ tailor_records()
 
 class customer(osv.osv):
 	_inherit = 'res.partner'
+	_columns = {
+		'tailor':fields.many2one("res.users","Tailor", required=True),
+		'related_user':fields.many2one('res.users','Related User'),
+
+		}
 
 customer()
