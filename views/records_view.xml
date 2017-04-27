@@ -125,7 +125,19 @@
 		<menuitem name="Measurements" id="measurements_menu" parent="tailor"/>
 		
 		<!-- menu item -->
-		<menuitem name="Records" parent="measurements_menu" id="records_menu_mainform" action="action_records_form"/>
+		<menuitem name="Records" parent="measurements_menu" id="records_menu_mainform" action="action_records_form" groups='Tailor.group_tailor_admin,Tailor.group_tailor_manager,Tailor.group_tailor_tailor,Tailor.group_tailor_cust'/>
+
+
+		 <record model="ir.ui.view" id="tailor_customers_view">           
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>           
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="title" position="after">
+                    <field name='related_user'/>
+                </field>
+            </field>        
+        </record>
 
 	</data>
 </openerp>

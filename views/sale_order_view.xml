@@ -8,6 +8,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
+                    <field name='tailor'/>
                     <group string='Size'>
                         <group>
                             <field name='neck'/>
